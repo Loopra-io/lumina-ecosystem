@@ -1,0 +1,50 @@
+{
+  "name": "@lumina/data-access",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    },
+    "./client": {
+      "import": "./dist/src/supabase/client.js",
+      "types": "./dist/src/supabase/client.d.ts"
+    },
+    "./services": {
+      "import": "./dist/src/services/index.js",
+      "types": "./dist/src/services/index.d.ts"
+    },
+    "./hooks": {
+      "import": "./dist/src/hooks/index.js",
+      "types": "./dist/src/hooks/index.d.ts"
+    },
+    "./providers": {
+      "import": "./dist/src/providers/index.js",
+      "types": "./dist/src/providers/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.100.1",
+    "@tanstack/react-query": "^5.95.2",
+    "dexie": "^3.1.0",
+    "zustand": "^5.0.12",
+    "@lumina/core-types": "file:../core-types"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": "^19.2.4",
+    "zustand": "^5.0.12"
+  }
+}

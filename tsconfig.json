@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "./packages/core-types" },
+    { "path": "./packages/ui-primitives" },
+    { "path": "./packages/data-access" },
+    { "path": "./packages/security" },
+    { "path": "./packages/education-api" },
+    { "path": "./apps/lumina-connect" },
+    { "path": "./apps/lumina-landing" },
+    { "path": "./apps/admin-hub" },
+    { "path": "./apps/faculty-portal" }
+  ]
+}

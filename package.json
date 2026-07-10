@@ -1,0 +1,73 @@
+{
+  "name": "lumina",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "npm@11.11.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "npm install",
+    "dev": "npm run dev --workspace=apps/lumina-landing",
+    "dev:admin": "npm run dev --workspace=apps/admin-hub",
+    "dev:faculty": "npm run dev --workspace=apps/faculty-portal",
+    "dev:connect": "npm run dev --workspace=apps/lumina-connect",
+    "dev:landing": "npm run dev --workspace=apps/lumina-landing",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "rimraf node_modules apps/*/node_modules packages/*/node_modules"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.100.1",
+    "@tanstack/react-query": "^5.95.2",
+    "dexie": "^3.1.0",
+    "framer-motion": "^12.38.0",
+    "i18next": "^25.10.9",
+    "lucide-react": "^1.8.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-i18next": "^16.6.6",
+    "react-router-dom": "^7.14.1",
+    "sonner": "^2.0.7",
+    "zustand": "^5.0.12",
+    "zod": "^3.22.2",
+    "@trpc/client": "^11.0.0",
+    "@trpc/server": "^11.0.0",
+    "@trpc/react-query": "^11.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.0",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.1"
+  },
+  "description": "**Gestión inteligente de horarios y servicios.**",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenerbotina/voltschedule.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/kenerbotina/voltschedule/issues"
+  },
+  "homepage": "https://github.com/kenerbotina/voltschedule#readme"
+}

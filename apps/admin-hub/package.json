@@ -1,0 +1,43 @@
+{
+  "name": "admin-hub",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.14.1",
+    "react-i18next": "^16.6.6",
+    "i18next": "^25.10.9",
+    "@tanstack/react-query": "^5.95.2",
+    "zustand": "^5.0.12",
+    "framer-motion": "^12.38.0",
+    "sonner": "^2.0.7",
+    "@lumina/core-types": "file:../../packages/core-types",
+    "@lumina/ui-primitives": "file:../../packages/ui-primitives",
+    "@lumina/data-access": "file:../../packages/data-access",
+    "@lumina/security": "file:../../packages/security",
+    "@trpc/client": "^11.0.0",
+    "@trpc/react-query": "^11.0.0"
+  },
+  "devDependencies": {
+    "react-refresh": "^0.14.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/node": "^24.12.0",
+    "vite": "^8.0.1",
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "typescript-eslint": "^8.57.0"
+  }
+}

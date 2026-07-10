@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lumina-brand: #05AD98;
+  --lumina-neutral-light: #BBBFBF;
+  --lumina-neutral-medium: #878787;
+  --lumina-white: #FFFFFF;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-color: var(--lumina-white);
+  color: var(--lumina-neutral-medium);
+}
+
+a {
+  color: var(--lumina-brand);
+}
+
+button, input, select, textarea {
+  border-color: var(--lumina-neutral-light);
+}
+
+::selection {
+  background-color: rgba(5, 173, 152, 0.2);
+  color: #111827;
+}

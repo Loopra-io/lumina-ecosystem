@@ -1,0 +1,22 @@
+@import "@lumina/ui-primitives/styles";
+
+:root {
+  --lumina-brand: #05AD98;
+  --lumina-neutral-light: #BBBFBF;
+  --lumina-neutral-medium: #878787;
+  --lumina-white: #FFFFFF;
+}
+
+body {
+  background-color: var(--lumina-white);
+  color: var(--lumina-neutral-medium);
+}
+
+a {
+  color: var(--lumina-brand);
+}
+
+::selection {
+  background-color: rgba(5, 173, 152, 0.2);
+  color: #111827;
+}

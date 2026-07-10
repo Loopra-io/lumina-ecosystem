@@ -1,0 +1,374 @@
+/* ============================================================================
+   LÚMINA — Design System Tokens
+   Arquitecto: Loopra Engineering
+   Zona horaria: America/Bogota
+   ============================================================================
+
+   ESTRUCTURA:
+   1. @import Tailwind
+   2. @theme  → tokens que Tailwind 4 consume para generar utilidades
+   3. :root   → variables CSS raw (tema oscuro, default)
+   4. [data-theme="light"] → override completo para modo claro
+   5. Estilos globales y utilidades
+   ============================================================================ */
+
+@import "tailwindcss";
+
+:root {
+  --lumina-brand: #05AD98;
+  --lumina-brand-soft: rgba(5, 173, 152, 0.12);
+  --lumina-brand-soft-strong: rgba(5, 173, 152, 0.28);
+  --lumina-neutral-light: #BBBFBF;
+  --lumina-neutral-medium: #878787;
+  --lumina-white: #FFFFFF;
+  --lumina-text-on-brand: #080a0c;
+}
+
+/* ============================================================================
+   §1 — TAILWIND 4 @theme TOKENS
+   Expone los colores como utilidades de clase (bg-brand-*, text-surface-*, etc.)
+   Paleta base: Teal #05AD98 · Gris platino #BBBFBF · Gris medio #878787 · Blanco #FFFFFF
+   ============================================================================ */
+
+@theme {
+  /* ── Marca principal: Verde Teal (Lúmina) ── */
+  --color-brand-50:  #e6f7f5;
+  --color-brand-100: #c1ebe5;
+  --color-brand-200: #97ded4;
+  --color-brand-300: #6cd0c3;
+  --color-brand-400: #3bc0b0;
+  --color-brand-500: #05AD98;
+  --color-brand-600: #048a7a;
+  --color-brand-700: #036b60;
+  --color-brand-800: #024d46;
+  --color-brand-900: #01302c;
+  --color-brand-950: #001917;
+
+  /* ── Acento neutro (grises de marca) ── */
+  --color-accent-300: #d5d7d7;
+  --color-accent-400: #BBBFBF;
+  --color-accent-500: #a3a7a7;
+  --color-accent-600: #878787;
+  --color-accent-700: #6b6b6b;
+
+  /* ── Superficies semánticas (alias hacia variables CSS) ── */
+  --color-surface-base:     var(--surface-base);
+  --color-surface-raised:   var(--surface-raised);
+  --color-surface-overlay:  var(--surface-overlay);
+  --color-surface-sunken:   var(--surface-sunken);
+
+  /* ── Texto semántico ── */
+  --color-text-primary:   var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:     var(--text-muted);
+  --color-text-disabled:  var(--text-disabled);
+
+  /* ── Bordes semánticos ── */
+  --color-border-subtle:  var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong:  var(--border-strong);
+  --color-border-brand:   var(--border-brand);
+
+  /* ── Estado / Feedback ── */
+  --color-success-500: #22c55e;
+  --color-warning-500: #f59e0b;
+  --color-danger-500:  #ef4444;
+  --color-info-500:    #05AD98;
+
+  /* ── Tipografía ── */
+  --font-display: "Sora", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "DM Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  /* ── Radio de bordes ── */
+  --radius-xs:  6px;
+  --radius-sm:  10px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+  --radius-2xl: 36px;
+
+  /* ── Sombras ── */
+  --shadow-glow-brand:  0 0 24px rgba(5, 173, 152, 0.35);
+  --shadow-glow-accent: 0 0 20px rgba(135, 135, 135, 0.25);
+  --shadow-card:        0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card-dark:   0 4px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================================================
+   §2 — MODO OSCURO (por defecto)
+   Aplicado en :root — sin class ni media query: dark es el estado inicial
+   ============================================================================ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Superficies */
+  --surface-base:    #0b0d0d;
+  --surface-raised:  #101313;
+  --surface-overlay: #141818;
+  --surface-sunken:  #060707;
+  --surface-card:    rgba(255, 255, 255, 0.04);
+  --surface-card-hover: rgba(255, 255, 255, 0.07);
+
+  /* Texto */
+  --text-primary:   #FFFFFF;
+  --text-secondary: #BBBFBF;
+  --text-muted:     #878787;
+  --text-disabled:  #565959;
+
+  /* Bordes */
+  --border-subtle:  rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+  --border-brand:   rgba(5, 173, 152, 0.45);
+
+  /* Navbar específico */
+  --nav-bg:              rgba(11, 13, 13, 0.72);
+  --nav-bg-scrolled:     rgba(11, 13, 13, 0.92);
+  --nav-border:          rgba(255, 255, 255, 0.06);
+  --nav-border-scrolled: rgba(5, 173, 152, 0.16);
+
+  /* Dropdown */
+  --dropdown-bg:     rgba(16, 19, 19, 0.96);
+  --dropdown-border: rgba(255, 255, 255, 0.09);
+
+  /* Interactivos */
+  --interactive-hover-bg:    rgba(255, 255, 255, 0.05);
+  --interactive-brand-bg:    rgba(5, 173, 152, 0.12);
+  --interactive-brand-hover: rgba(5, 173, 152, 0.18);
+
+  /* Gradiente de marca */
+  --gradient-brand:      linear-gradient(135deg, #05AD98, #048a7a);
+  --gradient-brand-text: linear-gradient(135deg, #3bc0b0, #97ded4);
+  --gradient-hero:       radial-gradient(ellipse 80% 60% at 50% -10%, rgba(5,173,152,0.16), transparent);
+
+  /* Línea de acento (borde top de elementos flotantes) */
+  --accent-line: linear-gradient(90deg, transparent, rgba(5,173,152,0.55), transparent);
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(5, 173, 152, 0.25);
+  --scrollbar-thumb-hover: rgba(5, 173, 152, 0.45);
+}
+
+/* ============================================================================
+   §3 — MODO CLARO
+   Override con [data-theme="light"] en <html>
+   ============================================================================ */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Superficies */
+  --surface-base:    #FFFFFF;
+  --surface-raised:  #FFFFFF;
+  --surface-overlay: #F5F6F6;
+  --surface-sunken:  #ECEDED;
+  --surface-card:    rgba(5, 173, 152, 0.05);
+  --surface-card-hover: rgba(5, 173, 152, 0.09);
+
+  /* Texto */
+  --text-primary:   #1a1c1c;
+  --text-secondary: #4b4d4d;
+  --text-muted:     #878787;
+  --text-disabled:  #BBBFBF;
+
+  /* Bordes */
+  --border-subtle:  rgba(135, 135, 135, 0.15);
+  --border-default: rgba(135, 135, 135, 0.28);
+  --border-strong:  rgba(135, 135, 135, 0.45);
+  --border-brand:   rgba(5, 173, 152, 0.45);
+
+  /* Navbar específico */
+  --nav-bg:              rgba(255, 255, 255, 0.80);
+  --nav-bg-scrolled:     rgba(255, 255, 255, 0.96);
+  --nav-border:          rgba(135, 135, 135, 0.18);
+  --nav-border-scrolled: rgba(5, 173, 152, 0.20);
+
+  /* Dropdown */
+  --dropdown-bg:     rgba(255, 255, 255, 0.98);
+  --dropdown-border: rgba(135, 135, 135, 0.20);
+
+  /* Interactivos */
+  --interactive-hover-bg:    rgba(135, 135, 135, 0.08);
+  --interactive-brand-bg:    rgba(5, 173, 152, 0.08);
+  --interactive-brand-hover: rgba(5, 173, 152, 0.14);
+
+  /* Gradientes */
+  --gradient-brand:      linear-gradient(135deg, #05AD98, #048a7a);
+  --gradient-brand-text: linear-gradient(135deg, #05AD98, #036b60);
+  --gradient-hero:       radial-gradient(ellipse 80% 60% at 50% -10%, rgba(5,173,152,0.10), transparent);
+
+  --accent-line: linear-gradient(90deg, transparent, rgba(5,173,152,0.40), transparent);
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(5, 173, 152, 0.22);
+  --scrollbar-thumb-hover: rgba(5, 173, 152, 0.40);
+}
+
+/* ============================================================================
+   §4 — ESTILOS GLOBALES BASE
+   ============================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--surface-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* ── Utilidades semánticas de paleta Lúmina ── */
+.bg-lumina-surface { background-color: var(--surface-base); }
+.bg-lumina-surface-card { background-color: var(--surface-card); }
+.bg-lumina-brand { background-color: var(--color-brand-500); }
+.bg-lumina-brand-soft { background-color: var(--lumina-brand-soft); }
+.bg-lumina-brand-soft-strong { background-color: var(--lumina-brand-soft-strong); }
+.text-lumina-brand { color: var(--color-brand-500); }
+.text-lumina-primary { color: var(--text-primary); }
+.text-lumina-secondary { color: var(--text-secondary); }
+.text-lumina-muted { color: var(--text-muted); }
+.text-lumina-on-brand { color: var(--lumina-text-on-brand); }
+.border-lumina-default { border-color: var(--border-default); }
+.border-lumina-brand { border-color: var(--border-brand); }
+.bg-lumina-interactive-brand { background-color: var(--interactive-brand-bg); }
+.bg-lumina-interactive-hover { background-color: var(--interactive-hover-bg); }
+
+/* ── Scrollbar personalizada (Webkit) ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ── Selección de texto ── */
+::selection {
+  background-color: rgba(5, 173, 152, 0.30);
+  color: var(--text-primary);
+}
+
+/* ── Focus visible global ── */
+:focus-visible {
+  outline: 2px solid rgba(5, 173, 152, 0.75);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Transición global de tema (solo propiedades costosas excluidas) ── */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, box-shadow, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Excluir animaciones existentes de la transición global */
+[class*="animate-"],
+[class*="motion-"] {
+  transition: none;
+}
+
+/* ============================================================================
+   §5 — UTILIDADES SEMÁNTICAS ADICIONALES
+   Clases helper que consumen las variables CSS directamente
+   ============================================================================ */
+
+/* Fondos */
+.bg-surface-base    { background-color: var(--surface-base); }
+.bg-surface-raised  { background-color: var(--surface-raised); }
+.bg-surface-overlay { background-color: var(--surface-overlay); }
+.bg-surface-card    { background-color: var(--surface-card); }
+
+/* Texto */
+.text-semantic-primary   { color: var(--text-primary); }
+.text-semantic-secondary { color: var(--text-secondary); }
+.text-semantic-muted     { color: var(--text-muted); }
+
+/* Bordes */
+.border-subtle  { border-color: var(--border-subtle); }
+.border-default { border-color: var(--border-default); }
+.border-brand   { border-color: var(--border-brand); }
+
+/* Gradiente de texto de marca */
+.text-gradient-brand {
+  background: var(--gradient-brand-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Glow de marca */
+.shadow-glow-brand  { box-shadow: var(--shadow-glow-brand); }
+.shadow-glow-accent { box-shadow: var(--shadow-glow-accent); }
+
+/* Fondo con gradiente hero */
+.bg-hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card base */
+.card-lumina {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card-lumina:hover {
+  background-color: var(--surface-card-hover);
+  border-color: var(--border-brand);
+}
+
+/* Línea de acento superior (decorativa) */
+.accent-line-top::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: var(--accent-line);
+  pointer-events: none;
+}

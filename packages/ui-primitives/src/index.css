@@ -1,0 +1,379 @@
+/**
+ * @fileoverview Lúmina Design System — Tokens globales
+ * @description Variables CSS para el ecosistema SaaS EdTech Lúmina by Loopra.
+ *   Define tokens semánticos de color, tipografía, espaciado, radios y sombras
+ *   para modo oscuro (por defecto) y modo claro, controlados via data-theme en <html>.
+ *
+ * @arquitectura
+ *   - Tailwind CSS 4 (Vite plugin) — tokens registrados en @theme
+ *   - data-theme="dark"  → modo oscuro  (default del sistema)
+ *   - data-theme="light" → modo claro
+ *   - Fallback automático: prefers-color-scheme si no hay preferencia guardada
+ *
+ * @zona-horaria  America/Bogota (UTC-5)
+ * @version       1.0.0
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   IMPORTACIÓN DE TAILWIND CSS 4
+───────────────────────────────────────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FUENTES — Google Fonts (Plus Jakarta Sans + JetBrains Mono)
+   Plus Jakarta Sans: caracterful, geométrica, perfecta para EdTech institucional
+   JetBrains Mono: código y valores numéricos (KPIs, notas)
+───────────────────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TAILWIND THEME — Tokens registrados para uso con clases de utilidad
+   Estos tokens definen el sistema de diseño base de Lúmina.
+   Los colores semánticos (bg, text, border) se controlan via CSS vars en capas
+   de tema para que el dark/light mode funcione sin duplicar clases en JSX.
+───────────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* ── Familias tipográficas ── */
+  --font-sans:  "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono:  "JetBrains Mono", "Fira Code", monospace;
+
+  /* ── Paleta de marca Lúmina (invariante, no cambia con el tema) ── */
+  --color-brand-50:   #e8f8f6;
+  --color-brand-100:  #d0f1eb;
+  --color-brand-200:  #a9e5db;
+  --color-brand-300:  #7fd7c7;
+  --color-brand-400:  #44c8b2;
+  --color-brand-500:  #05AD98;
+  --color-brand-600:  #049884;
+  --color-brand-700:  #037a6b;
+  --color-brand-800:  #035f53;
+  --color-brand-900:  #02423b;
+  --color-brand-950:  #012923;
+
+  /* ── Paleta acento neutra ── */
+  --color-accent-300: #eff0f0;
+  --color-accent-400: #BBBFBF;
+  --color-accent-500: #878787;
+  --color-accent-600: #6f6f6f;
+  --color-accent-700: #4f4f4f;
+
+  /* ── Paleta de éxito (verde esmeralda — notas, asistencia) ── */
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+
+  /* ── Paleta de alerta (ámbar — pendientes, avisos) ── */
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+
+  /* ── Paleta de error (rojo — fallas, rechazos) ── */
+  --color-danger-400:  #f87171;
+  --color-danger-500:  #ef4444;
+  --color-danger-600:  #dc2626;
+
+  /* ── Radios de borde del sistema ── */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-pill: 9999px;
+
+  /* ── Sombras de elevación ── */
+  --shadow-card:    0 4px 24px 0 rgba(0, 0, 0, 0.25);
+  --shadow-panel:   0 8px 40px 0 rgba(0, 0, 0, 0.35);
+  --shadow-brand:   0 0 28px 0 rgba(99, 102, 241, 0.35);
+  --shadow-brand-lg: 0 0 48px 0 rgba(99, 102, 241, 0.45);
+
+  /* ── Tokens de color semánticos — MODO OSCURO (valores por defecto) ──
+     Estos son los valores que Tailwind 4 usará cuando no hay override de tema.
+     El modo claro los sobreescribe en [data-theme="light"].           ── */
+
+  /* Fondos de superficie */
+  --color-surface-base:     #111111;
+  --color-surface-raised:   #1a1a1a;
+  --color-surface-overlay:  #202020;
+  --color-surface-card:     #171717;
+  --color-surface-input:    #222222;
+  --color-surface-hover:    rgba(5, 173, 152, 0.08);
+  --color-surface-active:   rgba(5, 173, 152, 0.14);
+  --color-surface-muted:    rgba(255, 255, 255, 0.04);
+
+  /* Bordes */
+  --color-border-subtle:    rgba(255, 255, 255, 0.08);
+  --color-border-default:   rgba(255, 255, 255, 0.14);
+  --color-border-emphasis:  rgba(255, 255, 255, 0.22);
+  --color-border-brand:     rgba(5, 173, 152, 0.30);
+  --color-border-brand-hover: rgba(5, 173, 152, 0.55);
+
+  /* Texto */
+  --color-text-primary:     #FFFFFF;
+  --color-text-secondary:   #BBBFBF;
+  --color-text-muted:       #878787;
+  --color-text-disabled:    #6f6f6f;
+  --color-text-brand:       #05AD98;
+  --color-text-brand-hover: #44c8b2;
+  --color-text-inverse:     #111111;
+
+  /* Navbar específico */
+  --color-nav-bg:           rgba(5, 8, 16, 0.72);
+  --color-nav-bg-scrolled:  rgba(5, 8, 16, 0.92);
+  --color-nav-border:       rgba(255, 255, 255, 0.05);
+  --color-nav-border-scrolled: rgba(255, 255, 255, 0.08);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MODO CLARO — Sobreescritura de tokens semánticos
+   Solo las variables semánticas cambian; los colores de marca son invariantes.
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  /* Fondos de superficie */
+  --color-surface-base:     #FFFFFF;
+  --color-surface-raised:   #FFFFFF;
+  --color-surface-overlay:  #f5f6f6;
+  --color-surface-card:     #FFFFFF;
+  --color-surface-input:    #f7f7f7;
+  --color-surface-hover:    rgba(5, 173, 152, 0.06);
+  --color-surface-active:   rgba(5, 173, 152, 0.12);
+  --color-surface-muted:    rgba(0, 0, 0, 0.03);
+
+  /* Bordes */
+  --color-border-subtle:    rgba(135, 135, 135, 0.16);
+  --color-border-default:   rgba(135, 135, 135, 0.24);
+  --color-border-emphasis:  rgba(135, 135, 135, 0.36);
+  --color-border-brand:     rgba(5, 173, 152, 0.35);
+  --color-border-brand-hover: rgba(5, 173, 152, 0.65);
+
+  /* Texto */
+  --color-text-primary:     #111111;
+  --color-text-secondary:   #878787;
+  --color-text-muted:       #BBBFBF;
+  --color-text-disabled:    #d8dada;
+  --color-text-brand:       #05AD98;
+  --color-text-brand-hover: #037a6b;
+  --color-text-inverse:     #FFFFFF;
+
+  /* Navbar específico */
+  --color-nav-bg:           rgba(248, 250, 255, 0.80);
+  --color-nav-bg-scrolled:  rgba(248, 250, 255, 0.96);
+  --color-nav-border:       rgba(0, 0, 0, 0.06);
+  --color-nav-border-scrolled: rgba(0, 0, 0, 0.10);
+
+  /* Sombras — más suaves en claro */
+  --shadow-card:    0 2px 16px 0 rgba(0, 0, 0, 0.08);
+  --shadow-panel:   0 4px 32px 0 rgba(0, 0, 0, 0.10);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESET Y BASE GLOBAL
+───────────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Modo oscuro por defecto hasta que JS aplique data-theme */
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100dvh;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TIPOGRAFÍA GLOBAL
+───────────────────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FOCO ACCESIBLE — ring basado en tokens de marca
+───────────────────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLLBAR — estilizada para ambos modos
+───────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: var(--radius-pill);
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-brand);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-default) transparent;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SELECCIÓN DE TEXTO
+───────────────────────────────────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(5, 173, 152, 0.28);
+  color: var(--color-text-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TRANSICIÓN GLOBAL DE TEMA
+   Aplicada solo a propiedades de color para evitar animar transforms/opacity
+   de componentes con animaciones propias (Framer Motion).
+───────────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.22s;
+  transition-timing-function: ease;
+}
+
+/* Excluir elementos donde la transición global interferiría */
+[data-no-transition],
+[data-no-transition] * {
+  transition: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILIDADES DE GRADIENTE DE MARCA — reutilizables en JSX vía className
+───────────────────────────────────────────────────────────────────────────── */
+.lumina-gradient-text {
+  background: linear-gradient(135deg, var(--color-brand-400), var(--color-accent-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lumina-gradient-brand {
+  background: linear-gradient(135deg, var(--color-brand-600), var(--color-accent-700));
+}
+
+.lumina-gradient-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 173, 152, 0.08) 0%,
+    rgba(135, 135, 135, 0.04) 100%
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLOW DE MARCA — para CTAs y elementos destacados
+───────────────────────────────────────────────────────────────────────────── */
+.lumina-glow {
+  box-shadow: var(--shadow-brand);
+}
+
+.lumina-glow-lg {
+  box-shadow: var(--shadow-brand-lg);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPONENTE BASE: CARD — usando tokens semánticos
+───────────────────────────────────────────────────────────────────────────── */
+.lumina-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.lumina-card:hover {
+  border-color: var(--color-border-brand);
+  box-shadow: var(--shadow-card), 0 0 0 1px var(--color-border-brand);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   NAVBAR — clases utilitarias específicas del componente
+───────────────────────────────────────────────────────────────────────────── */
+.lumina-nav {
+  background-color: var(--color-nav-bg);
+  border-bottom-color: var(--color-nav-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.lumina-nav.is-scrolled {
+  background-color: var(--color-nav-bg-scrolled);
+  border-bottom-color: var(--color-nav-border-scrolled);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="light"] .lumina-nav.is-scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DROPDOWN — panel flotante con tokens semánticos
+───────────────────────────────────────────────────────────────────────────── */
+.lumina-dropdown {
+  background-color: var(--color-surface-overlay);
+  border-color: var(--color-border-default);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--shadow-panel);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BOTÓN TOGGLE TEMA — animación del ícono
+───────────────────────────────────────────────────────────────────────────── */
+.theme-toggle-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+}
+
+.theme-toggle-icon.entering {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+.theme-toggle-icon.exiting {
+  transform: rotate(180deg) scale(0.5);
+  opacity: 0;
+}

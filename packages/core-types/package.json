@@ -1,0 +1,36 @@
+{
+  "name": "@lumina/core-types",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./database": {
+      "import": "./dist/database.types.js",
+      "types": "./dist/database.types.d.ts"
+    },
+    "./schemas": {
+      "import": "./dist/schemas/index.js",
+      "types": "./dist/schemas/index.d.ts"
+    },
+    "./rbac": {
+      "import": "./dist/rbac/index.js",
+      "types": "./dist/rbac/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "typecheck": "tsc -b --noEmit",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
