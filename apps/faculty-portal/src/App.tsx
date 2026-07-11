@@ -7,7 +7,7 @@ import ExternalLoginRedirect from './components/ExternalLoginRedirect'
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/faculty-portal">
         <div className="min-h-screen bg-gray-900 text-white p-6">
           <Routes>
             <Route path="/login" element={<ExternalLoginRedirect />} />

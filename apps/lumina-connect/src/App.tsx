@@ -21,7 +21,7 @@ function Placeholder({ title }: { title: string }) {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/lumina-connect">
       <Toaster position="top-right" theme="dark" closeButton />
 
       <Routes>
