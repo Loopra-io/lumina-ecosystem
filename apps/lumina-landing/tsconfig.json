@@ -30,7 +30,10 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@lumina/data-access": ["../../packages/data-access/src/index.ts"],
+      "@lumina/ui-primitives": ["../../packages/ui-primitives/src/index.ts"],
+      "@lumina/core-types": ["../../packages/core-types/src/index.ts"]
     }
   },
   "include": [

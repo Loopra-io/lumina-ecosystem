@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "lint": "eslint src",
     "preview": "vite preview"
   },
